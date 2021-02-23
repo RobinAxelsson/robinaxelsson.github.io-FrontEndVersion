@@ -3,7 +3,7 @@ const loginAddress = document.querySelector("#loginAddress");
 oktaSignIn = new OktaSignIn({
     baseUrl: 'https://dev-34426554.okta.com/', //Org URL
     clientId: '0oa7d2j7dMdzbChTQ5d6', //maybe callback
-    redirectUri: 'https://robinaxelsson.github.io/',
+    redirectUri: 'http://127.0.0.1:8080',
     authParams: {
         issuer: 'https://dev-34426554.okta.com/oauth2/default',
         responseType: ['token', 'id_token'],
