@@ -33,8 +33,10 @@
         <div id='loginAddress'></div>
     </nav>
 
-    <!-- START -->
+    <!-- As this is a single page application navigation is dynamically done with javascript changing the style="display: none;" inside code, this has the consequence that the login service only identifies the user but can't truly restrict user access. -->
     <div id="page-container">
+
+        <!-- Start Page -->
         <div class="page" id="startPage">
             <div class="page-section">
                 <div id="location-pin-div">
@@ -42,7 +44,7 @@
                 </div>
                 <div class="text-item">
                     <h3 class="header">IP Geolocation</h3>
-                    <button id="noLoginBtn" onclick="loginMode()">Test without login</button>
+                    <button id="testModeBtn" onclick="loginMode()">Test Mode</button>
                     <p>
                         Whenever you connect to the Internet you get a unique identifier for you or your network, called
                         an IP address. Usually ISPs (Internet Service Providers) have a certain range of IPs that they
@@ -80,12 +82,12 @@
             </div>
         </div>
 
-        <!-- LOGIN -->
+        <!-- Okta Identification - gets rendered dynamically at login - hidden at page load-->
         <div class="page" id="loginPage">
             <div class="flex-item" id="okta-login-container"></div>
         </div>
 
-        <!-- AUTHOR -->
+        <!-- Author - hidden at page load -->
         <div class="page" id="authorPage">
             <div class="page-section">
                 <div id="author-image-div">
@@ -106,27 +108,27 @@
             </div>
         </div>
 
-        <!-- LOCATION -->
+        <!-- Location - renders the world map and exposing the ip-location api. - hidden at page load -->
         <div class="page" id="locationPage">
             <div class="page-section" id="locationPage">
                 <div class="flex-item" id="map-frame">
-                    <div id="mapid"></div>
+                    <div id="openStreetMap-container"></div>
                 </div>
                 <div class="flex-item">
-                    <div class="text-item" id="ipData">
-                        <h2 id="ip"></h2>
-                        <h2 id="lat"></h2>
-                        <h2 id="long"></h2>
-                        <button id="apiBtn" onclick="callApi()">Get Location</button>
+                    <div class="text-item" id="ipData-container">
+                        <h2 id="ip-address"></h2>
+                        <h2 id="latitude"></h2>
+                        <h2 id="longitude"></h2>
+                        <button id="getLocationBtn" onclick="getIpLocation()">Get Location</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="JS/utility.js"></script>
-    <script src="JS/okta.js"></script>
-    <script src="JS/location.js"></script>
-    <script src="JS/app.js"></script>
+    <script src="JS/oktaID.js"></script>
+    <script src="JS/locationApi.js"></script>
+    <script src="JS/navigation.js"></script>
 </body>
 
 </html>
